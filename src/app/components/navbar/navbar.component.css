@@ -1,0 +1,16 @@
+.navbar.navbar-transparent {
+    background: #043053 !important;
+    position: fixed;
+}
+.h4name{
+color: white;
+}
+.h4name1{
+    color: #ffffff !important;
+    font-size: 20px !important;
+    font-weight: bold !important;
+   
+}
+.navbar.navbar-transparent .navbar-toggler-bar {
+    background: #ffffff;
+}

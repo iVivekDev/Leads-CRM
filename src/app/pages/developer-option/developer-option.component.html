@@ -1,0 +1,30 @@
+<div class=" content">
+    <div class="row">
+
+        <!-- Menus -->
+        <div class="col-sm-2">
+            <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link" [ngClass]="{'active show': Lookup}" data-toggle="pill" (click)="openMenu1()"
+                    role="tab" aria-controls="v-pills-home" aria-selected="true">Lookup</a>
+               
+            </div>
+        </div>
+
+        <!-- Components -->
+        <div class="col-sm-10">
+            <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade" id="v-pills-home" [ngClass]="{'active show': Lookup}" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
+                
+                   <app-lookup></app-lookup>
+
+                 
+
+                </div>
+          
+            </div>
+        </div>
+
+    </div>
+</div>
+

@@ -1,0 +1,67 @@
+<div class="d-flex flex-column flex">
+    <div>
+      <div class="p-3 p-md-5">
+        <div class="card p-0 col-lg-8 offset-lg-2 column">
+          <div class="row no-gutters">
+            <div class="col-md-6 r-l" style="position: relative; background-color: #043053 !important; border-right: 2px solid #043053;">
+              <div class=" d-flex flex-column">
+                <div class="d-flex flex align-items-center   justify-content-center">
+                  <div class="animate   fadeIn"> <br> <br> <br>
+                    <h4 style="text-align: center; padding-top: 100px; font-size: 5rem; color: #fff; transform: skewY(20deg);">
+                  CRM</h4>
+                  </div>
+  
+                </div>                        
+  
+              </div>
+            </div>
+            <div class="col-md-6" id="content-body">
+              <div class="p-4">
+                <h5>Login</h5>
+                <div class="text-error"></div>
+                <form [formGroup]="loginForm" >
+                  <div class="form-group" *ngIf="IsUsersList">
+                    <label>Email</label>
+                    <input type="email" autocomplete="off" formControlName="email"  name="email" class="form-control"
+                      placeholder="Email">
+                  </div>
+                  <div class="form-group" *ngIf="IsUsersList">
+                    <label>Password</label>
+                    <input type="password" autocomplete="off"  formControlName="password" name="password" class="form-control"
+                      placeholder="Password">
+                      <a class="cursor">
+                        <span style="float: right;"(click)="Openform()" >Forgot Password</span>
+                      </a>
+                   
+                  </div>
+                  <div class="form-group" *ngIf="IsUsersForm">
+                    <form [formGroup]="forgotForm">
+                    <label>Email</label>
+                    <input type="email" autocomplete="off" formControlName="email"  name="email" class="form-control"
+                      placeholder="Email">
+                      <button type="button" class="btn btn-primary mb-4" (click)="forgotPwd()">Send</button>
+                       <a class="cursor">
+                        <span style="float: right;" (click)="back()">Back To Login</span>
+                      </a>
+                    </form>
+                  </div>
+
+                  <div class="checkbox mb-3">
+                    <label class="ui-check">
+                     
+                    </label>
+                  </div> 
+                  <button type="submit" *ngIf="IsUsersList" class="btn btn-primary mb-4" (click)="sign()">Sign in</button>
+                  <!-- <button type="submit" *ngIf="IsUsersList" class="btn btn-primary mb-4" (click)="sign()">Sign in</button> -->
+                  
+                </form>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 

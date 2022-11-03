@@ -1,0 +1,148 @@
+<div class="content">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-header">
+            <h5 class="title">
+              <a style="font-size: 16px; font-weight: bold" routerLink="/ViewSales"
+                ><i class="tim-icons icon-minimal-left"></i>&nbsp;&nbsp;Sales</a
+              >
+            </h5>
+          </div>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-md-6">
+                <form [formGroup]="SalesForm">
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <label>Date</label>
+                      <div class="form-group">
+                        <input type="datetime-local" placeholder="Date" class="form-control" formControlName="date" />
+                      </div>
+                    </div>
+  
+
+                    <div class="col-md-6 pr-md-1">
+                      <label>Item Name </label>
+                      <div class="form-group">
+                        <select class="form-select select1" aria-label="Default select example" formControlName="Item_Name">
+                        <option *ngFor="let matList of MaterialList" value="{{ matList.name }}">
+                            {{ matList?.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+  
+                    <div class="col-md-6 pr-md-1">
+                      <label class="form-label"> Type </label>
+                      <div class="form-group">
+                        <input type="text"
+                          placeholder="Type"
+                          class="form-control"
+                          formControlName="type"
+                        />
+                      </div>
+                    </div>
+  
+                    <div class="col-md-6 pr-md-1">
+                      <label>Qty</label>
+                      <div class="form-group">
+                        <input
+                          type="number"
+                          placeholder="Qty"
+                          class="form-control"
+                          formControlName="qty"
+                          (change)="calculateAmt()"
+                        />
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <label>Rate</label>
+                      <div class="form-group">
+                        <input
+                          type="number"
+                          (change)="calculateAmt()"
+                          placeholder="Rate"
+                          class="form-control"
+                          formControlName="rate"
+                        />
+                      </div>
+                    </div>
+  
+                    <div class="col-md-6 pr-md-1">
+                      <label>Amount</label>
+                      <div class="form-group">
+                        <input type="number" placeholder="Amount" class="form-control" formControlName="amount" 
+                        (change)="calculateAmt()" readonly />
+                      </div>
+                    </div>
+                   
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <label>Deposit</label>
+                      <div class="form-group">
+                        <input
+                          type="number"
+                          placeholder="Deposit"
+                          class="form-control"
+                          formControlName="deposit"
+                          (change)="calculateAmt()"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-md-6 pr-md-1">
+                      <label>Balance</label>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          placeholder="Balance"
+                          class="form-control"
+                          formControlName="balance"
+                          (change)="calculateAmt()" readonly
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 pr-md-1">
+                      <label>Remark</label>
+                      <div class="form-group">
+                        <input
+                          type="text"
+                          placeholder="remark"
+                          class="form-control"
+                          formControlName="remark"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <br /><br />
+                  <div style="text-align: right">
+                    <button
+                      type="button"
+                      class="btn btn-secondary"
+                      routerLink="/ViewSales">
+                      Cancel</button>
+                    &nbsp;&nbsp;&nbsp;<button
+                      type="submit"
+                      class="btn btn-primary mr-2"
+                      (click)="SaveSales()">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

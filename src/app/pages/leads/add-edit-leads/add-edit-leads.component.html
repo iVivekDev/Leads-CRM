@@ -1,0 +1,143 @@
+<div class="content">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">
+            <a style="font-size: 16px; font-weight: bold" routerLink="/Leads"
+              ><i class="tim-icons icon-minimal-left"></i>&nbsp;&nbsp;New
+              Leads</a
+            >
+          </h5>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-6">
+              <form [formGroup]="LeadForm">
+                <div class="row">
+                  <div class="col-md-6 pr-md-1">
+                    <label>Name</label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="name"
+                        formControlName="name"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 pr-md-1">
+                    <label class="form-label"> Mobile </label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="mobile"
+                        formControlName="mobile"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+
+                  <div class="col-md-6 pr-md-1">
+                    <label class="form-label"> email </label>
+                    <div class="form-group">
+                      <input
+                        type="email"
+                        placeholder="email"
+                        formControlName="email"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 pr-md-1">
+                    <label>Address</label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="address"
+                        formControlName="address"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-6 pr-md-1">
+                    <label>Date</label>
+                    <div class="form-group">
+                      <input
+                        type="datetime-local"
+                        placeholder="Address"
+                        formControlName="dts"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 pr-md-1">
+                    <label>Remark</label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="remark"
+                        formControlName="remark"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+                 
+                </div>
+                <div class="row">
+                  <div class="col-md-6 pr-md-1">
+                    <label>Requirments</label>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        placeholder="Requirments"
+                        formControlName="requirments"
+                        class="form-control"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6 pr-md-1">
+                    <label>Branch Name</label>
+                    <div class="form-group">
+                      <select class="form-select select1" aria-label="Default select example" formControlName="branch_Id">
+                        <option *ngFor="let Branch of BranchList" value="{{ Branch.branch_Id }}" >
+                          {{ Branch?.name }}
+                        </option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <br /><br />
+                <div style="text-align: right">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    routerLink="/Leads"
+                  >
+                    Cancel</button
+                  >&nbsp;&nbsp;&nbsp;<button
+                    type="submit"
+                    class="btn btn-primary mr-2"
+                    (click)="saveleads()"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

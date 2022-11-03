@@ -1,0 +1,41 @@
+
+<div class="sidebar-wrapper">
+  <ul class="nav">
+    <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{ menuItem.class }} nav-item">
+      <a [routerLink]="[menuItem.path]">
+        <i class="tim-icons  {{ menuItem.icon }}"></i>
+        <p>{{ menuItem.title }}</p>
+      </a>
+    </li>
+
+    <li class="nav-item" routerlinkactive="active" ngbDropdown  *ngIf="RoleId==0">
+      <a class="nav-link" data-toggle="dropdown" href="javascript:void(0)" ngbDropdownToggle >
+        <i class="tim-icons icon-settings-gear-63"></i>
+       <span>Setting</span>
+        <b class=" d-none d-lg-block d-xl-block"></b>
+      </a>
+      <ul class="dropdown-navbar" ngbDropdownMenu style="background:#043053;padding-right: 20px;">
+        <li routerlinkactive="active">
+          <a routerLink="/firm" ngbDropdownItem>
+            <i class="tim-icons icon-bank"></i>
+            <span>Firm & Business</span>
+          </a>
+        </li>
+        <li routerlinkactive="active">
+          <a  routerLink="/Developer" ngbDropdownItem>
+            <i class="tim-icons icon-html5"></i>
+            <span>Developer Option</span>
+          </a>
+        </li>
+        <li routerlinkactive="active">
+          <a routerLink="/CreateUser" ngbDropdownItem>
+            <i class="tim-icons icon-single-02"></i>
+            <span>Staff Managements</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+
+</div>

@@ -1,0 +1,75 @@
+<div class="content">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class=" card-header">
+                    <h5 class=" title"><a style="font-size: 16px; font-weight: bold;" routerLink="/Lookups"><i
+                                class="tim-icons icon-minimal-left"></i>&nbsp;&nbsp;New Lookups</a>
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <form [formGroup]="LookupForm">
+                              
+                                <div class="row">
+                                    <div class="col-md-6 pr-md-1">
+                                        <label class="form-label"> lookup Name </label>
+                                        <div class="form-group"><input placeholder="lookup_Name" formControlName="lookup_Name"
+                                                class=" form-control  ">
+                                            <div class="input-append"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pr-md-1">
+                                        <label class="form-label"> Lookup Type </label>
+                                        <div class="form-group"><input type="text" placeholder="lookup_Type"
+                                                formControlName="lookup_Type" class=" form-control ">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6 pr-md-1">
+                                        <div class="form-group">
+                                            <label class="form-label"> lookup Value </label>
+                                            <input type="text" placeholder="lookup_Value"
+                                                formControlName="lookup_Value" class=" form-control  ">
+                                            <div class="input-append"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 pr-md-1">
+                                        <div class="form-group">
+                                            <label class="form-label"> discription </label><input type="text"
+                                                placeholder="discription" formControlName="discription"
+                                                class=" form-control">
+                                        </div>
+                                    </div>
+                                </div>
+
+                               
+                                <div class="row">
+                                  
+                                    <div class="col-md-6 pr-md-1">
+                                        <div class="form-group">
+                                            <label class="form-label"> Lookup SubType </label><input type="text"
+                                                placeholder="lookup_SubType" formControlName="lookup_SubType"
+                                                class=" form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                             
+                               
+                                <div style="text-align: right;"><button type="button"
+                                        class="btn btn-secondary" routerLink="/Lookups"> Cancel
+                                    </button><button type="submit" class="btn btn-primary mr-2"
+                                        (click)="savelookup()">Submit
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

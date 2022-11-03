@@ -1,0 +1,58 @@
+<div class="card">
+    <div class=" card-header">
+        <div class="d-flex align-items-baseline">
+            <h4 class="font-weight-bold"  > Company Details</h4>
+        </div>
+    </div>
+    <div class="card-body">
+        <form [formGroup]="companyForm">
+            <div class="row">
+                <div class="col-md-6 pr-md-1">
+                    <label class="form-label">Company Name</label>
+                    <div class="form-group"><input placeholder="Company Name" formControlName="company_Name"
+                            class="form-control">
+                        <div class="input-append"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 pr-md-1">
+                    <label class="form-label">Email</label>
+                    <div class="form-group"><input type="text" placeholder="Email" formControlName="email"
+                            class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 pr-md-1">
+                    <div class="form-group">
+                        <label class="form-label"> Phone </label>
+                        <input type="text" placeholder="Phone" formControlName="phone" class="form-control"  (keyup)="onInputChange($event.target.value, $event.backspace)" placeholder="Phone">
+                    </div>
+                </div>
+                <div class="col-md-6 pr-md-1">
+                    <div class="form-group">
+                        <label class="form-label"> Address </label><input type="text" placeholder="Address"
+                            formControlName="address" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin: 4px;">
+                <div class="col pl-0 pr-md-1">
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input class="form-check-input" type="checkbox" disabled formControlName="is_Active"> Is
+                            Active
+                            <span class="form-check-sign">
+                                <span class="check"></span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <br><br>
+            <div style="text-align: right;"><button type="submit" class="btn btn-success mr-2"
+                    (click)="UpdateCompany()">Submit
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,46 @@
+.text-error
+{
+    color:red;
+    padding:6px 6px 6px 0px;
+}
+.img{
+    background-size: cover;
+    width: 40%;
+  
+}
+.d-flex .flex .align-items-center .justify-content-center{
+    border-radius: 15px 0px 0px 15px ;
+}
+// .col-md-6 .r-l{
+//     border-radius:;
+// }
+// .d-flex .flex-column{
+//     border-radius: 15px 0px 0px 15px;
+// }
+.d-flex .flex-column{
+    position: relative;
+    background-color: #043053;
+    border-right: 2px solid #043053;
+   border-top-left-radius: 6px;
+   border-bottom-left-radius: 6px;
+
+}
+.no-gutters > .col, .no-gutters > [class*=col-] {
+    padding-right: 0;
+    padding-left: 0;
+    border-radius: 8px;
+   
+}
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    border: 1px solid #043053;
+    border-radius: 8px;
+}
+.d-flex[_ngcontent-gov-c139] .flex-column[_ngcontent-gov-c139] {
+    position: relative;
+    background-color: #043053;
+    border-right: 2px solid rgb(18, 70, 116);
+    border-bottom-left-radius: 8px;
+    border-top-left-radius: 8px;
+}

@@ -1,0 +1,41 @@
+<app-navbar></app-navbar>
+<div class="container Info-dash">
+  <div class="All-Branch">
+    <h2>
+      <i class=" tim-icons icon-bell-55 text-danger-states"></i>
+      No Of Branch - <b>{{BranchList?.length}}</b>
+    </h2>
+    <div class="row">
+        <div class="col-md-4" *ngFor="let BranchListobj of BranchList">
+          <span  style="cursor: pointer;">
+            <div class="card" (click)="Enter(BranchListobj.branch_Id)">
+              <div class="card-body">
+                  <h4><b>Branch Id - {{BranchListobj.branch_Id}}</b></h4>
+                  <h2 class="card-title text-uppercase">
+                    <b>
+                      <span class="text-capitalize">Branch Name -</span>{{BranchListobj.name}}
+                    </b>
+                  </h2>
+                  <h4 class="card-text">Branch Address - {{BranchListobj.address}}</h4>
+                </div>
+              </div>
+          </span>
+          </div>
+
+        <div class="col-md-2">
+          <span (click)="Add_Branch()" style="cursor: pointer;">
+            <div class="card text-center">
+              <div class="card-body">
+                <h4><b>Add Branch</b></h4>
+                <br>
+                <i class="tim-icons icon-simple-add" style="font-size:45px;"></i>
+                <br>
+                <br>
+                <br>
+              </div>
+            </div>
+          </span>
+        </div>
+    </div>
+  </div>
+</div>

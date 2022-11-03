@@ -1,0 +1,118 @@
+<div class="content">
+  <div class="row"></div>
+  <div class="card">
+    <div class="card-header">
+      <div class="row">
+        <div class="col-sm-4">
+          <h4 class="font-weight-bold">Leads</h4>
+        </div>
+        <div class="col-sm-3"></div>
+
+        <div class="col-sm-3">
+          <input
+            class="form-control"
+            placeholder="Filter Data"
+            type="text"
+            (keyup)="applyFilter($event.target.value)"
+          />
+        </div>
+        <div class="col-sm-1">
+          <a
+            class="ml-auto btn btn-success"
+            [routerLink]="['/addLeads']"
+            href="#"
+          >
+            + Add Leads
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-body">
+      <div class="mat-elevation-z888">
+        <table
+          class="table"
+          style="background-color: white"
+          mat-table
+          matSort
+          [dataSource]="dataSource"
+        >
+          <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="branch_Name">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Branch_Name</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.name }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="mobile">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Mobile
+            </th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.mobile}}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="remark">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Remark</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.remark }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="requirments">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Requirments</th>
+            <td mat-cell *matCellDef="let element">
+              {{ element.requirments }}
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef>Action</th>
+            <td mat-cell *matCellDef="let element">
+              <button
+                mat-fab
+                color="primary"
+                class="eye"
+                aria-label="Example icon button with a delete icon"
+                (click)="EditRequestResponse(element?.leads_Id)"
+              >
+                <mat-icon>visibility</mat-icon>
+              </button>
+              &nbsp;
+              <span
+                >&nbsp;
+                <button
+                  mat-fab
+                  color="warn"
+                  class="button"
+                  aria-label="Example icon button with a delete icon"
+                  (click)="delete(element?.leads_Id)">
+                  <mat-icon>delete</mat-icon>
+                </button>
+              </span>
+            </td></ng-container
+          >
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns" id="th1"></tr>
+          <tr
+            mat-row
+            *matRowDef="let row; columns: displayedColumns"
+            id="th1"
+          ></tr>
+        </table>
+        <mat-paginator
+          [pageSizeOptions]="[30, 50, 100]"
+          showFirstLastButtons
+          style="background-color: white; color: black"
+        ></mat-paginator>
+      </div>
+    </div>
+  </div>
+</div>

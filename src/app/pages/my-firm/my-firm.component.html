@@ -1,0 +1,138 @@
+<div class="content">
+  <div>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          (click)="currentTab('info')"
+          [ngClass]="[infoTab ? 'active' : '']"
+          data-toggle="tab"
+          role="tab"
+          aria-controls="home"
+          aria-selected="true"
+          >Firm Info</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          style="cursor: pointer"
+          (click)="currentTab('bank')"
+          [ngClass]="[bankTab ? 'active' : '']"
+          data-toggle="tab"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+          >Bank Info</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" style="cursor: pointer" (click)="currentTab('branch')" [ngClass]="[branchTab ? 'active' : '']"
+          data-toggle="tab"
+          role="tab"
+          aria-controls="profile"
+          aria-selected="false"
+          >Branch</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="tab-content" id="myTabContent">
+    <div class="tab-pane fade show active" *ngIf="infoTab" role="tabpanel" aria-labelledby="home-tab">
+        <form class="kt-form kt-form--label-right" [formGroup]="clientForm">
+            <div class="modal-body">
+                <div class="kt-portlet__body" style="padding-left: 40px; padding-right: 40px;">
+                    <div class="row mb-2">
+                        <div class="col-3">
+                            <label class="col-form-label">Name</label>
+                            <input type="text" class="form-control" formControlName="name" placeholder="Name">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Pan</label>
+                            <input type="text" class="form-control" formControlName="pan" placeholder="Pan">
+                        </div>
+
+                        <div class="col-3">
+                            <label class="col-form-label">DOI </label>
+                            <input class="form-control" formControlName="doi" type="datetime-local" >
+
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Mobile</label>
+                            <input type="text" class="form-control" formControlName="mobile" placeholder="Modile No...">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-3">
+                            <label class="col-form-label">city</label>
+                            <input type="text" class="form-control" formControlName="city" placeholder="City">
+                        </div>
+
+                        <div class="col-3">
+                            <label class="col-form-label">State </label>
+                            <input type="text" class="form-control" formControlName="state" placeholder="State">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Country</label>
+                            <input type="text" class="form-control" formControlName="country" placeholder="Contry">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Pin Code</label>
+                            <input type="text" class="form-control" formControlName="pin_Code" placeholder="Pin Code">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-3">
+                            <label class="col-form-label">Website </label>
+                            <input type="text" class="form-control" formControlName="website" placeholder="Website">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Fb</label>
+                            <input type="text" class="form-control" formControlName="fb" placeholder="Fb">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Twitter</label>
+                            <input type="text" class="form-control" formControlName="twitter" placeholder="Twitter">
+                        </div>
+
+                        <div class="col-3">
+                            <label class="col-form-label">Email</label>
+                            <input type="text" class="form-control" formControlName="email" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col-3">
+                            <label class="col-form-label">GSTIN</label>
+                            <input type="text" class="form-control" formControlName="gstin" placeholder="GST No...">
+                        </div>
+                        <div class="col-3">
+                            <label class="col-form-label">Owner Name</label>
+                            <input type="text" class="form-control" formControlName="owner_name" placeholder="Owner Name">
+                        </div>
+                        <div class="col-6">
+                            <label class="col-form-label">Address</label>
+                            <textarea type="text" class="form-control" formControlName="address" placeholder="Address"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- <button type="reset" class="btn btn-white" (click)="cancel()">
+                    Cancel
+                </button> -->
+                <input type="submit" (click)="updateFirm()" class="btn btn-primary" value="Save" />
+            </div>
+        </form>
+    </div>
+    <div class="tab-pane fade show active" role="tabpanel" *ngIf="bankTab" aria-labelledby="gst-tab">
+        <app-bank></app-bank>
+    </div>
+    <div class="tab-pane fade show active" role="tabpanel" *ngIf="branchTab" aria-labelledby="gst-tab">
+        <app-patner></app-patner>
+    </div>
+    <div class="tab-pane fade show active" role="tabpanel" *ngIf="attachmentTab" aria-labelledby="gst-tab">
+        <app-client-attachments entityType="Firm" entityId="1"></app-client-attachments>
+    </div>
+</div>
+</div>

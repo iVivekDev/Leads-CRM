@@ -1,0 +1,72 @@
+<div class=" content">
+
+  <div class="row justify-content-between align-items-center">
+    <div class="col-md-2"><span style="font-weight:bold; font-size: 1.3rem">Dashboard</span></div>
+    <div class="col-md-2"><span style="font-weight:bold; font-size: 1.3rem">{{date}}/{{month}}/{{year}}</span></div>
+  </div>
+  <div class="container">
+    <br> <br> <br>
+
+    <h3> <b> All Branches </b></h3>
+    <div class="row justify-content-between">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title"><span style="font-weight:500; font-size:1rem">TOTAL LEADS</span></h5>
+            <p class="card-text"><span style="font-weight:bold; font-size:1rem">{{LeadsList?.length}}
+                <i class="tim-icons icon-paper"></i></span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title"><span style="font-weight:500; font-size:1rem">TOTAL SALES</span></h5>
+            <p class="card-text"><span style="font-weight:bold; font-size:1rem">{{sum}} ₹</span></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <h5 class="card-title"><span style="font-weight:500; font-size:1rem">TOTAL PRODUCTS</span></h5>
+            <p class="card-text"><span style="font-weight:bold; font-size:1rem">{{MatList?.length}}&nbsp;
+                <i class="tim-icons icon-bag-16"></i></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+    <br> <br>
+
+    <div *ngIf="role_Id==0">
+      <div class="row justify-content-between">
+
+        <div class="col-md-4" *ngFor="let Branch of BranchList">
+          <div class="card">
+            <div class="card-body">
+              <h3 class="card-title"><span style="font-weight:500; font-size:1rem">{{Branch.name}}</span></h3> <br>
+              <div class="row justify-content-between text-center">
+                <div class="col-md-4">
+                  <h5 style="font-weight:500; font-size: 0.9rem">LEADS</h5>
+                  <p style="font-weight:500; font-size: 0.8rem">{{LeadsList?.lenght}}</p>
+                </div>
+                <div class="col-md-4">
+                  <h5 style="font-weight:500; font-size: 0.9rem">SALES</h5>
+                  <p style="font-weight:500; font-size: 0.8rem">234550 ₹</p>
+                </div>
+                <div class="col-md-4">
+                  <h5 style="font-weight:500; font-size: 0.9rem">CLIENTS</h5>
+                  <p style="font-weight:500; font-size: 0.8rem">20</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Container end -->
+  </div>
+</div>

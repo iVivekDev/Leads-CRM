@@ -1,0 +1,497 @@
+<div class="content">
+  <div class="row">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-4">
+          <button><i class="fa fa-arrow-left" (click)="close()"></i></button>
+          <span style="font-size: 15px">&nbsp;&nbsp;Back</span>
+        </div>
+        <div class="col-sm-8 topnav">
+          <a>
+            <button>
+              <i class="fa fa-plug" style="color: orangered; font-size: 25px"></i></button></a>
+          <a>
+            <button>
+              <i class="material-icons" style="color: orangered">warning</i>
+            </button></a>
+          <a>
+            <button>
+              <i class="material-icons" style="color: skyblue">circle</i>
+            </button></a>
+        </div>
+       
+      </div>
+    </div>
+    <div class="col-sm-7">
+      <br />
+      <div class="card">
+        <div class="tabset">
+          <!-- Tab 1 -->
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab1" aria-controls="Note" checked />
+          <label for="tab1" [ngClass]="{ 'active show': Note }" (click)="openTab1()" role="tab"
+            aria-controls="v-pills-home" aria-selected="true"><i class="fa fa-sticky-note">&nbsp; Note</i></label>
+          <!-- Tab 2 -->
+          <input type="radio" name="active_tabs" id="tab2" aria-controls="Email" />
+          <label for="tab2" [ngClass]="{ 'active show': Email }" (click)="openTab2()" role="tab"
+            aria-controls="v-pills-profile" aria-selected="true"><span
+              class="icon fa fa-envelope"></span>&nbsp;&nbsp;&nbsp;&nbsp;
+            Email</label>
+          <!-----Tab 3 ----->
+          <input type="radio" name="active_tabs" id="tab3" aria-controls="Email" />
+          <label for="tab3" [ngClass]="{ 'active show': Call }" (click)="openTab3()" role="tab"
+            aria-controls="v-pills-profile" aria-selected="true"><i class="fa fa-phone">&nbsp; Call</i></label>
+          <!-----Tab 4 ----->
+          <input type="radio" name="active_tabs" id="tab4" aria-controls="Email" />
+          <label for="tab4" [ngClass]="{ 'active show': SMS }" (click)="openTab4()" role="tab"
+            aria-controls="v-pills-profile" aria-selected="true"><i class="fa fa-file"></i>&nbsp; SMS</label>
+          <!-----Tab 5 ----->
+          <input type="radio" name="active_tabs" id="tab5" aria-controls="whatsapp" />
+          <label for="tab5" [ngClass]="{ 'active show': whatsapp }" (click)="openTab5()" role="tab"
+            aria-controls="v-pills-profile" aria-selected="true"><i class="fab fa-whatsapp"></i>&nbsp; Whatsapp</label>
+          <hr />
+        </div>
+    
+
+        <div class="tab-content" id="v-pills-tabContent" style="height: auto">
+          <div class="tab-pane fade" [ngClass]="{ 'active show': Note }">
+            <form>
+              <div class="row">
+                <div class="col-12 form-group" [formGroup]="NotesForm">
+                  <textarea class="form-control" placeholder="Write note here " formControlName="notes_Description"></textarea>
+                </div>
+              </div>
+            </form>
+            <button type="submit" style="float: right" (click)="saveNotes()" class="btn btn-success btn-rounded">
+              Submit
+            </button>
+          </div>
+          <div class="tab-pane fade" [ngClass]="{ 'active show': Email }">
+            <form>
+              <div class="row">
+                <div class="col-12 form-group" [formGroup]="EmailForm">
+                  <p>
+                    &nbsp; To: {{ Leadsdetails?.email }}
+                    <span style="float: right"> CC/BCC</span>
+                  </p>
+                  <input type="email" class="form-control" formControlName="email_Subject" placeholder="Subject" />
+                  <textarea class="form-control" placeholder="Message" formControlName="email_Description"
+                    style="margin-left: -10px"></textarea>
+                </div>
+              </div>
+            </form>
+       
+            <button type="submit" style="float: right" (click)="SaveEmails()" class="btn btn-success btn-rounded">
+              Send
+            </button>
+          </div>
+          <div class="tab-pane fade" [ngClass]="{ 'active show': Call }">
+            <form [formGroup]="CallLogForm">
+              <div class="row">
+                <div class="col-sm-6">
+                  <label class="form-label"> Call Started </label>
+                  <div class="form-group" class="form-control">
+                    <input type="datetime-local" formControlName="call_Started" style="outline: none" />
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label"> Call Ended</label>
+                  <div class="form-group" class="form-control">
+                    <input type="datetime-local" type="datetime-local" formControlName="call_Ended"
+                      style="outline: none" />
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                '
+                <div class="col-sm-12">
+                  <label class="form-label"> Describe Call</label>
+                  <textarea class="form-group" class="form-control" formControlName="calls_Description"
+                    placeholder="DescribeCall " name="" id="" cols="30" rows="10">
+                    </textarea>
+                </div>
+              </div>
+            </form>
+
+            <button type="submit" style="float: right" (click)="saveCall()" class="btn btn-success btn-rounded">
+              Submit
+            </button>
+          </div>
+
+          <div class="tab-pane fade" [ngClass]="{ 'active show': SMS }">
+            <form>
+              <div class="row">
+                <div class="col-12 form-group" [formGroup]="SmsForm">
+                  <textarea class="form-control" placeholder="Write Sms_Description here " formControlName="sms_Description"></textarea>
+                </div>
+              </div>
+            </form>
+            <button type="submit" style="float: right" (click)="SaveSms()" class="btn btn-success btn-rounded">
+              Submit
+            </button>
+          </div>
+
+          <div class="tab-pane fade" [ngClass]="{ 'active show': whatsapp }">
+            <form>
+              <div class="row">
+                <div class="col-12 form-group" [formGroup]="WhatsappForm">
+                  <textarea class="form-control" placeholder="Write Whatsapp_Msg here " formControlName="whatsapp_Massage"></textarea>
+                </div>
+              </div>
+            </form>
+            <button type="submit" style="float: right" (click)="SaveWhatsappMsg()" class="btn btn-success btn-rounded">
+              Submit
+            </button>
+          </div>
+        </div>
+        <br />
+      </div>
+
+      <div class="row">
+        <div class="col-sm-1">
+          <h5>
+            <a href="#Activity" style="text-decoration: none; font-size: 17px">Activity</a>
+          </h5>
+        </div>
+
+        <div class="col-11 tabset">
+          <!-- Tab 1 -->
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab11" aria-controls="whatsapp" checked />
+          <label for="tab11" [ngClass]="{ 'active show': whatsapp2 }" (click)="openTab11()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">Whatsapp</label>
+
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab10" aria-controls="Email" />
+          <label for="tab10" [ngClass]="{ 'active show': SMS2 }" (click)="openTab10()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">&nbsp; SMS</label>
+
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab9" aria-controls="Calls" />
+          <label for="tab9" [ngClass]="{ 'active show': Call2 }" (click)="openTab9()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">&nbsp; Calls</label>
+
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab8" aria-controls="Email" />
+          <label for="tab8" [ngClass]="{ 'active show': Email2 }" (click)="openTab8()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">Email</label>
+
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab7" aria-controls="Notes" />
+          <label for="tab7" [ngClass]="{ 'active show': Notes2 }" (click)="openTab7()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">&nbsp; Notes</label>
+
+          <input type="radio" class="tabs__radio" name="active_tabs" id="tab6" aria-controls="All" checked />
+          <label for="tab6" [ngClass]="{ 'active show': All }" (click)="openTab6()" class="tabs__label"
+            data-toggle="pill" role="tab" aria-selected="true" style="float: right">All</label>
+        </div>
+      </div>
+      <br />
+
+      <div class="tab-content" id="v-pills-tabContent">
+        <!-- <div class="tab-pane fade" [ngClass]="{ 'active show': All }" role="tabpanel">
+          <div class="row">
+            <div class="card" style="width: 96.7%; margin-left: 1.7%" *ngFor="let obj of AllDetail">
+              <table style="position: relative; top: 10% !important">
+                <thead>
+                  <tr>
+                    <th class="text-left">
+                      <i class="fa fa-user"></i>&nbsp; {{ obj?.notes_Description}}
+                    </th>
+                    <th class="text-right">{{ obj?.date | date: "medium" }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div> -->
+
+        
+        <div class="tab-pane fade" [ngClass]="{ 'active show': Notes2 }" role="tabpanel">
+          <div class="row">
+            <div class="card" *ngFor="let obj of NotesDetails">
+              <span class="emp-name">{{obj.full_Name}}</span>
+              <table>
+                <thead>
+
+                  <tr>
+                    <th class="text-left">
+                      <i class="fa fa-user"></i>&nbsp; <b>{{ obj?.notes_Description }}</b>
+                    </th>
+                    <th class="text-right">{{ obj?.date | date: "medium" }}</th>
+                    <!-- <th> <select>
+              <option value="">Action</option>
+      
+            </select></th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" [ngClass]="{ 'active show': Email2 }" role="tabpanel">
+          <div class="row">
+            <div class="card" *ngFor="let obj of AllEmailDetails">
+              <span class="emp-name">{{obj.full_Name}}</span>
+              <table>
+                <thead style="padding: 10px">
+                  <tr>
+                    <th style="font-weight: bold; float: left">
+                      <i class="fa fa-user"></i>&nbsp; &nbsp;{{ obj?.email_Subject }}
+                    </th>
+                    <th class="test-center">{{obj?.email_Description}}</th>
+                    <th class="text-right">{{ obj?.email_Date | date: "medium" }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td style="
+                          font-weight: normal;
+                          margin-left: 10px;
+                          float: left;
+                        ">
+                      {{ obj?.body }}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" [ngClass]="{ 'active show': Call2 }" role="tabpanel">
+          <div class="row">
+            <div class="card" *ngFor="let obj of CallLogDetails">
+              <span class="emp-name">{{obj.full_Name}}</span>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-left" style="font-weight: bold">
+                      <i class="fa fa-user"></i>&nbsp; &nbsp;{{ obj?.calls_Description }}
+                    </th>
+                    <th class="text-right">
+                      {{ obj?.call_Started | date: "short" }} &nbsp; <b>To</b> &nbsp;
+                      {{ obj?.call_Ended | date: "short" }}
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-pane fade" [ngClass]="{ 'active show': SMS2 }" role="tabpanel">
+          <div class="row">
+            <div class="card" *ngFor="let obj of AllSMSDetails">
+              <span class="emp-name">{{obj.full_Name}}</span>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-left" style="font-weight: bold">
+                      <i class="fa fa-user"></i>&nbsp; &nbsp;{{ obj?.sms_Description }}
+                    </th>
+                    <th class="text-right">
+                      {{ obj?.sms_Date | date: "short" }} 
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="tab-pane fade" [ngClass]="{ 'active show': whatsapp2 }" role="tabpanel">
+          <div class="row">
+            <div class="card" *ngFor="let obj of AllWhatsapp">
+              <span class="emp-name">{{obj.full_Name}}</span>
+              <table>
+                <thead>
+                  <tr>
+                    <th class="text-left" style="font-weight: bold">
+                      <i class="fa fa-user"></i>&nbsp; &nbsp;{{ obj?.whatsapp_Massage }}
+                    </th>
+                    <th class="text-right">
+                      {{ obj?.whatsapp_Date | date: "short" }} 
+                    </th>
+                  </tr>
+                </thead>
+              </table>
+            </div>
+          </div>>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-5">
+      <div class="card" style="position: relative; top: 1.5%">
+        <div class="row">
+          <div class="col-sm-1"></div>
+          <div class="col-sm-3">
+            <br />
+            <p class="data-letters" style="float: left">
+              {{ Leadsdetails?.name }}
+            </p>
+          </div>
+
+          <div class="4">
+            <h4>
+              {{ Leadsdetails?.name }}
+              <i class="fa fa-edit cursor" (click)="Edit(Leadsdetails?.leads_Id)" data-target="#m-model" title=""
+                id="btn-trash" data-original-title="Trash"></i>
+            </h4>
+
+            <br /><br />
+            <span style="margin-left: 20px">
+              +91 {{ Leadsdetails?.mobile }}
+            </span>
+             <br />
+             <span style="margin-left: 20px">
+               {{ Leadsdetails?.email }}
+            </span>
+            <br />
+          </div>
+          <br />
+          <div class="col-sm-1">
+            <button style="margin-top: 20px; float: left">
+              <i class="fa fa-phone"></i>
+            </button>
+          </div>
+          <div class="col-sm-1">
+            <button style="margin-top: 20px; float: left">
+              <i class="fa fa-file"></i>
+            </button>
+          </div>
+          <div class="col-sm-1">
+            <button style="margin-top: 20px; float: left">
+              <span class="icon fa fa-envelope"></span>
+            </button>
+          </div>
+          <div class="col-sm-1">
+            <button style="margin-top: 20px; float: left">
+              <i class="date-icon fa fa-calendar" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="col-sm-1"></div>
+        </div>
+      </div>
+      <table>
+        <br />
+        <tbody>
+          <br />
+          <tr>
+            <th class="text-center">Branch Name</th>
+            <th class="text-center">Remark</th>
+            <th class="text-center">Requirments</th>
+          </tr>
+          <tr>
+            <td>{{ Leadsdetails?.name}}
+            </td>
+            <td>{{ Leadsdetails?.remark }}</td>
+            <td>{{ Leadsdetails?.requirments }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <hr />
+
+      <div id="m-model" class="modal" data-backdrop="true" style="display: block; background: #0000008c"
+        *ngIf="ModalOpen" aria-hidden="true">
+        <div class="modal-dialog modal-xl" style="width: 693px">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Leads</h5>
+              <button type="button" (click)="closeNotesModal()" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <div class="row" style="padding: 10px">
+
+                <form [formGroup]="LeadForm">
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label>Name</label>
+                      <input type="text" placeholder="name" formControlName="name" class="form-control"
+                        style="outline: 1px solid rgb(184, 182, 182)" />
+                    </div>
+
+                    <div class="col-md-6 pr-md-1">
+                      <label>Branch Name</label>
+                      <div class="form-group">
+                        <select class="form-select select1" aria-label="Default select example" formControlName="branch_Id" >
+                          <option *ngFor="let Branch of BranchList" value="{{ Branch.branch_Id }}" >
+                            {{ Branch?.name }}
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label"> Mobile </label>
+                      <div class="form-group">
+                        <input type="text" placeholder="phone"
+                          formControlName="mobile" class="form-control"
+                          style="outline: 1px solid rgb(184, 182, 182)" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label"> Email </label>
+                      <div class="form-group">
+                        <input type="email" placeholder="email"
+                          formControlName="email" class="form-control"
+                          style="outline: 1px solid rgb(184, 182, 182)" />
+                      </div>
+                    </div>
+                  </div>
+
+
+                  <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                      <label class="form-label">Address</label>
+                      <div class="form-group">
+                        <input type="text" placeholder="Requirments"
+                           formControlName="address" class="form-control"
+                          style="outline: 1px solid rgb(184, 182, 182)" />
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                      <label>Remark</label>
+                      <div class="form-group">
+                        <input type="text" placeholder="Phone type" formControlName="remark" class="form-control"
+                          style="outline: 1px solid rgb(184, 182, 182)" />
+                      </div>
+                    </div>
+
+                    
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <label>Requirments</label>
+                      <div class="form-group">
+                        <input type="text" placeholder="Phone type" formControlName="requirments" class="form-control"
+                          style="outline: 1px solid rgb(184, 182, 182)" />
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <div style="text-align: right">
+                    <button type="submit" class="btn btn-primary mr-2" (click)="saveleads()">
+                      Submit
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

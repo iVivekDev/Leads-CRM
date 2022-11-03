@@ -1,0 +1,38 @@
+// Gradients
+
+@mixin gradient-bg($color) {
+  @if $enable-gradients {
+  } @else {
+    background-color: $color;
+  }
+}
+
+// Horizontal gradient, from left to right
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-x($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%) {
+  background-repeat: repeat-x;
+}
+
+// Vertical gradient, from top to bottom
+//
+// Creates two color stops, start and end, by specifying a color and position for each color stop.
+@mixin gradient-y($start-color: $gray-700, $end-color: $gray-800, $start-percent: 0%, $end-percent: 100%) {
+  background-repeat: repeat-x;
+}
+
+@mixin gradient-directional($start-color: $gray-700, $end-color: $gray-800, $deg: 45deg) {
+  background-repeat: repeat-x;
+}
+@mixin gradient-x-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
+  background-repeat: no-repeat;
+}
+@mixin gradient-y-three-colors($start-color: $blue, $mid-color: $purple, $color-stop: 50%, $end-color: $red) {
+  background-repeat: no-repeat;
+}
+@mixin gradient-radial($inner-color: $gray-700, $outer-color: $gray-800) {
+  background-image: radial-gradient(circle, $inner-color, $outer-color);
+  background-repeat: no-repeat;
+}
+@mixin gradient-striped($color: rgba($white, .15), $angle: 45deg) {
+}
