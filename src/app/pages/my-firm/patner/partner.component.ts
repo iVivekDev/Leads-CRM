@@ -27,6 +27,7 @@ export class PatnerComponent implements OnInit {
   userObj: any;
   Company_Id: any;
   branch_Id: any;
+  showChange: boolean;
 
   constructor(private FormBuilder: FormBuilder,
     private router: Router,

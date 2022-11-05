@@ -155,8 +155,4 @@ export class SalesComponent implements OnInit {
     });
   }
 
-
-
-
-
 }

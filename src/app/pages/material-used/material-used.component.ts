@@ -26,7 +26,11 @@ export class MaterialUsedComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  displayedColumns: string[] = ["name", "description","Qr", "action"];
+  displayedColumns: string[] = 
+  ["name", 
+  "description",
+  // "Qr", 
+  "action"];
   MaterialForm: FormGroup;
   dataSource: MatTableDataSource<any>;
   Company_Id: any;

@@ -135,6 +135,11 @@ export class DashboardComponent implements OnInit {
     this.date = day;
     this.year = year
   }
+  Change_Branch() {
+    window.localStorage.removeItem('Branch_Name');
+    window.localStorage.removeItem('branch_Id');
+    this.router.navigate(["/Info"]);
+  }
 
  
 

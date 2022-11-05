@@ -1,14 +1,24 @@
 <div class=" content">
 
-  <div class="row justify-content-between align-items-center">
-    <div class="col-md-2"><span style="font-weight:bold; font-size: 1.3rem">Dashboard</span></div>
+  <div class="row justify-content-between text-center">
+    <div class="col-md-2 mb-2"><span style="font-weight:bold; font-size: 1.3rem">Dashboard</span></div>
     <div class="col-md-2"><span style="font-weight:bold; font-size: 1.3rem">{{date}}/{{month}}/{{year}}</span></div>
   </div>
+  <hr>
   <div class="container">
-    <br> <br> <br>
+    <br> <br>
 
-    <h3> <b> All Branches </b></h3>
-    <div class="row justify-content-between">
+    <div class="row justify-content-between text-center" >
+      <div class="col-md-2 ">
+        <h3> <b> All Branches </b></h3>
+      </div>
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary mr-2" (click)="Change_Branch()" *ngIf="role_Id==0">
+          Change Branch
+        </button>
+      </div>
+    </div> <br>
+    <div class="row justify-content">
       <div class="col-md-4">
         <div class="card">
           <div class="card-body text-center">
@@ -42,12 +52,12 @@
     <br> <br>
 
     <div *ngIf="role_Id==0">
-      <div class="row justify-content-between">
+      <div class="row m-3">
 
         <div class="col-md-4" *ngFor="let Branch of BranchList">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title"><span style="font-weight:500; font-size:1rem">{{Branch.name}}</span></h3> <br>
+              <h3 class="card-title"><span style="font-weight:500; font-size:1rem">{{Branch.name}}</span></h3> <hr>
               <div class="row justify-content-between text-center">
                 <div class="col-md-4">
                   <h5 style="font-weight:500; font-size: 0.9rem">LEADS</h5>

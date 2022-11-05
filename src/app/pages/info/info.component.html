@@ -5,37 +5,90 @@
       <i class=" tim-icons icon-bell-55 text-danger-states"></i>
       No Of Branch - <b>{{BranchList?.length}}</b>
     </h2>
+    <div *ngIf="BranchList?.length ===0" class="text-center">
+      <h2 >No records found</h2>
+    </div>
     <div class="row">
-        <div class="col-md-4" *ngFor="let BranchListobj of BranchList">
-          <span  style="cursor: pointer;">
-            <div class="card" (click)="Enter(BranchListobj.branch_Id)">
-              <div class="card-body">
-                  <h4><b>Branch Id - {{BranchListobj.branch_Id}}</b></h4>
-                  <h2 class="card-title text-uppercase">
-                    <b>
-                      <span class="text-capitalize">Branch Name -</span>{{BranchListobj.name}}
-                    </b>
-                  </h2>
-                  <h4 class="card-text">Branch Address - {{BranchListobj.address}}</h4>
-                </div>
-              </div>
-          </span>
-          </div>
-
-        <div class="col-md-2">
-          <span (click)="Add_Branch()" style="cursor: pointer;">
-            <div class="card text-center">
-              <div class="card-body">
-                <h4><b>Add Branch</b></h4>
-                <br>
-                <i class="tim-icons icon-simple-add" style="font-size:45px;"></i>
-                <br>
-                <br>
-                <br>
-              </div>
+      <div class="col-md-4" *ngFor="let BranchListobj of BranchList">
+        <span style="cursor: pointer;">
+          <div class="card BranchCard" (click)="Enter(BranchListobj.branch_Id)">
+            <div class="card-body">
+              <h2 class="card-title text-uppercase">
+                <b>
+                  <span class="text-capitalize">Branch Name - </span>{{BranchListobj.name}}
+                </b>
+              </h2>
+              <h4 class="card-text">Branch Address - {{BranchListobj.address}}</h4>
             </div>
-          </span>
+          </div>
+        </span>
+      </div>
+
+
+      <div id="m-model" class="modal" data-backdrop="true" style="display: block; background: #0000008c"
+        *ngIf="ModalOpen" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header ">
+              <h2 class="modal-title">New Branch</h2>
+              <button class="btn btn-danger btn-icon btn-sm mt-1" (click)="cancel()" rel="tooltip" type="button"
+                data-original-title="" title="">
+                <i class="fa fa-times"></i>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form class="kt-form kt-form--label-right" [formGroup]="EditFormBranch">
+                <div class="modal-body">
+                  <div class="kt-portlet__body" style="padding-left: 40px; padding-right: 40px">
+                    <div class="row flex-column">
+                      <div class="col-md-12">
+                        <label class="col-form-label">Branch Name</label>
+                        <input class="form-control" type="text" formControlName="name" value=""
+                          placeholder="Branch Name" />
+                      </div>
+
+                      <div class="col-md-12">
+                        <label class="col-form-label">Mobile</label>
+                        <input type="text" class="form-control" formControlName="mobile" placeholder="Mobile No.." />
+                      </div>
+
+                      <div class="col-md-12">
+                        <label class="col-form-label">Address</label>
+                        <input type="text" class="form-control" formControlName="address" placeholder="Addresss" />
+                      </div>
+                    </div>
+
+                    <div class="modal-footer">
+                      <div style="text-align: right">
+                        <button type="button" class="btn btn-secondary" (click)=" cancel()">
+                          Cancel
+                        </button>&nbsp;&nbsp;&nbsp;
+                        <button type="submit" class="btn btn-primary mr-2" (click)="saveBranch()">
+                          Create
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
+
+      <div class="col-md-2">
+        <span style="cursor: pointer;">
+          <div class=" card text-center BranchCard" (click)="addBranch()" data-target="#m-model" title="Add_Branch"
+            id="btn-trash" data-original-title="Trash">
+            <div class="card-body">
+              <h4><b> Add Branch </b></h4>
+              <br>
+              <i class="tim-icons icon-simple-add zoom" style="font-size:45px;"></i>
+              <br>
+            </div>
+          </div>
+        </span>
+      </div>
     </div>
   </div>
 </div>

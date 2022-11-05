@@ -42,6 +42,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   role_Id: any;
   Change: Promise<boolean>;
   LocalBranch_Id: any;
+  showChange: boolean = true;
 
   constructor(
     location: Location,
@@ -90,7 +91,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.LocalBranch_Id = this.userObj.userInfo.branch_Name;
     this.role_Id = this.userObj.userInfo.role_Id;
     this.Branch_Name = localStorage.getItem("Branch_Name")
-    console.log("branch",this.Branch_Name)
+    console.log("branch", this.Branch_Name)
 
     this.listTitles = ROUTES.filter((listTitle) => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
@@ -112,7 +113,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
       old_Password: "",
     });
     this.Getall();
-
   }
 
   Getall() {
@@ -280,10 +280,6 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.router.navigate(["/"]);
   }
 
-  Change_Branch() {
-    window.localStorage.removeItem('Branch_Name');
-    window.localStorage.removeItem('branch_Id');
-    this.router.navigate(["/Info"]);
-  }
+  
 
 }

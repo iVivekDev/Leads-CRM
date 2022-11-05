@@ -112,7 +112,9 @@ export class ViewsalesComponent implements OnInit {
       this.DepositAmount = this.sum;
      });
   }
-
+  applyFilter(){
+    
+  }
   getTotalBalance(Branch_Id) {
     let i;
     this.api.GetAllSales(Branch_Id).subscribe((res) => {

@@ -19,7 +19,7 @@ export class LeadsComponent implements OnInit {
 
   displayedColumns: string[] = [
     "name",
-    "branch_Name",
+    // "branch_Name",
     "mobile",
     "remark",
     "requirments",
